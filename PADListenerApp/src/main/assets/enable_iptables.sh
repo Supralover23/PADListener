@@ -52,15 +52,15 @@ echo " - Excluded process id "${EXCLUDED_PROCESS_ID}
 ##################################################
 echo "Creating Chain 1"
 ${IPTABLES} --new ${CHAIN_NAME_1}
-if [ $? -ne 0 ] ; then echo "Error creating Chain 1 !" && exit 1 ; fi
+if [ $? -gt 1 ] ; then echo "Error creating Chain 1 !" && exit 1 ; fi
 
 echo "Creating Chain 1 nat"
 ${IPTABLES} -t nat --new ${CHAIN_NAME_1}
-if [ $? -ne 0 ] ; then echo "Error creating Chain 1 nat !" && exit 1 ; fi
+if [ $? -gt 1 ] ; then echo "Error creating Chain 1 nat !" && exit 1 ; fi
 
 echo "Creating Chain 2 nat"
 ${IPTABLES} -t nat --new ${CHAIN_NAME_2}
-if [ $? -ne 0 ] ; then echo "Error creating Chain 2 nat !" && exit 1 ; fi
+if [ $? -gt 1 ] ; then echo "Error creating Chain 2 nat !" && exit 1 ; fi
 
 
 ##################################################
